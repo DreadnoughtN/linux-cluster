@@ -1,0 +1,12 @@
+---
+- name: install docker
+  ansible.builtin.apt: 
+    name: [curl, docker.io, docker-compose]
+    state: present
+    update_cache: yes
+
+- name: start docker
+  systemd: 
+    name: docker
+    enabled: yes
+    state: started
