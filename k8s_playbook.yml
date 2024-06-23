@@ -3,9 +3,6 @@
   hosts: all
   become: yes
   tasks: 
-    - name: install docker
-      import_tasks: tasks/docker.yml
-
     - name: install k8s
       import_tasks: tasks/k8s.yml
 
@@ -17,7 +14,7 @@
       import_tasks: tasks/k8s_master.yml
       
 - name: k8s node conf
-  hosts: nodes
+  #hosts: all
   become: yes
   tasks:
     - name: node configuration
